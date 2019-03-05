@@ -1,0 +1,156 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Londrina+Solid" rel="stylesheet"  type="font">
+  <style>
+
+body
+{
+  overflow:hidden;
+  margin:0px;
+  font-size: 20px;
+  color:rgb(5, 12, 103);
+  font-family:Londrina Solid,cursive;
+}
+
+      img
+      {
+        margin:0px;
+        padding:0px;
+      }
+    .box
+    {
+      margin:0 auto;
+      padding:0;
+      top:50%
+      left:50%;
+      opacity:0.8px;
+      width:937px;
+      height:80%;
+      transform: translateX(20%) translateY(-110%);
+      text-align:justify;
+      background-color:rgba(209, 200, 198, 0.02) ;
+      position: relative;
+      position: absolute;
+    }
+
+    input
+    {
+      color:rgb(1, 136, 56);
+      box-border:2px;
+      text-decoration:none;
+       font-family: Londrina Solid,cursive;
+       font-size:20px;
+    }
+
+    input[type="text"]
+    {
+      color:rgb(14, 199, 99);
+      font-family: Londrina Solid,cursive;
+      outline:none;
+      border:none;
+      background-color:rgba(106, 104, 221, 0.0);
+      text-decoration:none;
+    }
+
+    select
+    {
+      font-family:Londrina Solid,cursive,bold ;
+      background-color:rgba(1, 146, 215, 0.00);
+      outline:none;
+      border:none;
+      color:rgb(5, 12, 103);
+      font-size:20px
+    }
+
+    option
+    {
+      font-size:20px;
+      font:bold;
+      opacity:0.0;
+      background:rgba(255, 148, 67, 0.2);
+    }
+
+
+   input[type="submit"]:hover
+   {
+     opacity:0.0px;
+     color:black;
+     background-color:rgb(205, 73, 32);
+   }
+
+    input[type="submit"]
+    {
+      cursor:pointer;
+      color:rgb(205, 73, 32);
+      box-sizing:80%;
+      width:87%;
+      border:none;
+      background-color:black;
+      outline:none;
+    }
+
+sup
+{
+  color:rgb(124, 21, 21);
+}
+
+input:title
+{
+  color:red;
+  background-color:blue;
+}
+
+  </style>
+</head>
+  <body>
+  <div>
+    <img src="radients.jpg" width="100%" height="102%" >
+    <div class="box">
+    <form action="reg1" method="post" >
+    <b>FirstName<sup>*</sup>&nbsp;&nbsp;&nbsp:<input type="text" name="fN" title="" placeholder="Enter firstname"  required autofocus><br><br>
+       Roll-id<sup>*</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp :<input type="text" name="rI" title="-> Must contain Alphabets and Numbers" placeholder="Enter roll-id" required min="10"><br><br>
+    Current-Year<sup>*</sup>: <select name="cY"><option>1st</option><option>2nd</option><option>3rd</option><option>4th</option></select><br><br>
+    Branch<sup>*</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp : <select name="Branch"><option>CSE</option><option>ECE</option><option>MECH</option><option>Civil</option><option>EEE</option></select><br><br>
+    Percentage&nbsp;&nbsp;&nbsp; : SSC-<input type="text" name="tP" title="" placeholder="Enter Percentage">Intermediate-<input type="text" name="iP" title="" placeholder="Enter Percentage"><br><br>
+    Email-Id&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;:<input type="text" name="eI" title="-> In-Valid" placeholder="Enter email-id" pattern="(\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3})"><span id="text"></span><br><br>
+    Mobile-No<sup>*</sup>&nbsp;&nbsp;&nbsp:<input type="text" name="mN" title="" placeholder="Enter mobile-No" id="mobileNumber" value=" "><br><br>
+    Password<sup>*</sup>  &nbsp;&nbsp;&nbsp; :<input type="text" name="pwd" title="-> Must contain Atleast 1-Lowercase,1-Uppercase,1-Specialcharacter,1-Digit,Min-5,Max-9" placeholder="Enter password" required pattern="^(?=.{5,9})(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[\W]).*$"><br><br></b>
+    <input type="submit" value="Submit" title="Register">
+    </form>
+
+  
+    </div>
+  </div>
+  <script>
+    function checkmobile() {
+    var terms = document.getElementById('mobileNumber').value;
+
+    if(terms==" ")
+    {
+      document.getElementById('text').innerHtml="Mobile Number Cannot be Zero";
+      return false;
+    }
+    if(terms<10)
+    {
+      document.getElementById('mobileNumber').title="It cannot Exceed 10-digits";
+      return false;
+    }
+    if(terms>10)
+    {
+      document.getElementById('mobileNumber').title="It cannot be less than 10-digits";
+      return false;
+    }
+    if(isNaN(a))
+    {
+        document.getElementById('mobileNumber').title="Characters or Alphabets are not allowed";
+        return false;
+    }
+    if((terms.charAt(0)!=9) && (terms.charAt(0)!=8) && (terms.charAt(0)!=7)
+    {
+        document.getElementById('mobileNumber').title="Mobile Number Must Start with 9 or 8 or 7";
+        return false;
+    }
+}
+  </script>
+  </body>
+</html>

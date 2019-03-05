@@ -1,0 +1,210 @@
+<!DOCTYPE Html>
+
+<html>
+  <head>
+    <meta charset="ISO-8859-1">
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid" rel="stylesheet"  type="font">
+    <style>
+      body
+      {
+        overflow:hidden;
+        margin:0px;
+        font-size: 20px;
+        color:rgb(5, 12, 103);
+        font-family:Londrina Solid,cursive;
+      }
+
+            img
+            {
+              margin:0px;
+              padding:0px;
+            }
+          .box
+          {
+            margin:0 auto;
+            padding:0;
+            top:50%
+            left:50%;
+            opacity:0.8px;
+            width:700px;
+            height:80%;
+            transform: translateX(30%) translateY(-100%);
+            text-align:justify;
+            background-color:rgba(209, 200, 198, 0.02) ;
+            position: relative;
+            position: absolute;
+            margin-left:50px;
+          }
+
+          input
+          {
+            color:rgb(1, 136, 56);
+            box-border:2px;
+            text-decoration:none;
+             font-family: Londrina Solid,cursive;
+             font-size:20px;
+          }
+
+          input[type="text"]
+          {
+            color:rgb(14, 199, 99);
+            font-family: Londrina Solid,cursive;
+            outline:none;
+            border:none;
+            background-color:rgba(106, 104, 221, 0.0);
+            text-decoration:none;
+          }
+
+          select
+          {
+            font-family:Londrina Solid,cursive,bold ;
+            background-color:rgba(1, 146, 215, 0.00);
+            outline:none;
+            border:none;
+            color:rgb(5, 12, 103);
+            font-size:20px
+          }
+
+          option
+          {
+            font-size:20px;
+            font:bold;
+            opacity:0.0;
+            background:rgba(255, 148, 67, 0.2);
+          }
+
+
+         input[type="submit"]:hover
+         {
+           opacity:0.0px;
+           color:black;
+           background-color:rgb(205, 73, 32);
+         }
+
+          input[type="submit"]
+          {
+            cursor:pointer;
+            color:rgb(205, 73, 32);
+            box-sizing:80%;
+            width:87%;
+            border:none;
+            background-color:black;
+            outline:none;
+          }
+
+      sup
+      {
+        color:rgb(124, 21, 21);
+      }
+
+      input:title
+      {
+        color:red;
+        background-color:blue;
+      }
+
+bdo
+{
+  text-align:right;
+  font-size: 20px;
+}
+
+#sub
+{
+  width:50%;
+}
+
+
+span#result
+{
+  text-align:right;
+  color:rgb(249, 6, 6);
+  line-spacing:2px;
+
+}
+
+
+  </style>
+  </head>
+  <body>
+    <img src="/Festo-Chart/images/radients.jpg" width="100%" height="102%" >
+    <div class="box">
+    <form action="log" method="post" onsubmit="return validations()">
+    <b>
+       Roll-id<sup>*</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<input type="text" id="rollv" name="rI" title="-> Must contain Alphabets and Numbers" placeholder="Enter roll-id" required min="10"><br><br>
+    Password<sup>*</sup>  &nbsp;&nbsp;&nbsp; :<input type="text" id="pwdv" name="pwd" title="" placeholder="Enter password" required><br><br></b>
+    <span id="remm"><input type="checkbox" name="RememberMe" class="rem"><b>Remember-Me</b></span><br><br>
+    <input type="submit" id="sub" value="Login" title="Login"><br><br>
+    <hr>
+    <span id="result"><b></b></span>
+    </form>
+    </div>
+
+
+   <script>
+     function validations()
+     {
+       var termsrol = document.getElementById('rollv').innerHtml;
+       var termspwd = document.getElementById('pwdv').innerHtml;
+       var load;
+       var inc = false;
+       var inc1 = false;
+       var alpha = false;
+       var num = false;
+       var spechar = false;
+
+       if(termsrol==" ")
+       {
+         load = "*Rollid Cannot be Empty";
+         return false;
+       }
+
+       if(termspwd==" ")
+       {
+         load = load + "\n*Password Cannot be Empty";
+         return false;
+       }
+
+       for(int i=0;i<=termsrol.size-1;i++)
+       {
+         if(termsrol.charAt(i)isNaN)
+         {
+           inc = true;
+         }
+         if(!(termsrol.charAt(i)isNaN))
+         {
+           inc1 = true;
+         }
+       }
+       if(inc!=true && inc1!=true)
+       {
+         return false;
+       }
+
+       for(int i=0;i<=termspwd.size-1;i++)
+       {
+         if(termspwd.charAt(i)isNaN)
+         {
+           alpha = true;
+         }
+         if(!(termspwd.charAt(i)isNaN))
+         {
+           num = true;
+         }
+         if(27<=(int)termspwd.charAt(i)<=31 || 33<=(int)termspwd.charAt(i)<=47|| 58<=(int)termspwd.charAt(i)<=64 || 51<=(int)termspwd.charAt(i)<=96)
+         {
+           spechar = true;
+         }
+       }
+       if(alpha!=true||num!=true||spechar!=true)
+       {
+        load = load + "\n*Must contain of Atleast one alphabet or digit or special character";
+        return false;
+       }
+
+      document.getElementById('result').innerHtml = load;
+
+     }
+  </script>
+  </body>
+</html>
